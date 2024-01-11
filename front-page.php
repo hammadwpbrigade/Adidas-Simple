@@ -61,6 +61,9 @@ get_header();
     height: 225px;
     width:484px;
 }
+.post-1{
+    width:225px;
+}
 hr{
     color:white;
 }
@@ -216,25 +219,32 @@ if ($sticky_query->have_posts()) {
          </div>
               </div>
            </div>
-<div class="posts" style="display:flex;">
+           <div class="posts" style="display:flex;">
     <?php
+    // Custom query to get posts from the 'group-posts' category
+    $args = array(
+        'category_name' => 'group-posts',
+        'posts_per_page' => -1, // -1 to display all posts
+    );
+    $custom_query = new WP_Query($args);
+
     // Assuming this code is within the WordPress Loop
-    if (have_posts()) :
-        while (have_posts()) : the_post();
+    if ($custom_query->have_posts()) :
+        while ($custom_query->have_posts()) : $custom_query->the_post();
     ?>
-            <div class="post-1" style="width:225px;">
+            <div class="post-1">
                 <div class="thumbnail">
                     <?php
                     if (has_post_thumbnail()) {
                         the_post_thumbnail();
                     } else {
-                        // If there's no thumbnail, you can display a default image or leave it empty
+                       
                         echo '<img src="path_to_default_image" alt="Default Image">';
                     }
                     ?>
                 </div>
                 <div class="post-content">
-                    <h5 style="color:white;"><?php the_title(); ?></h2>
+                    <h6 style="color:white;"><?php the_title(); ?></h6>
                     <div class="text" style="color:white;"><?php the_excerpt(); ?></div>
                 </div>
                 <div class="read-more">
@@ -243,13 +253,13 @@ if ($sticky_query->have_posts()) {
             </div>
     <?php
         endwhile;
+        wp_reset_postdata(); 
     else :
-        // If no posts are found
         echo '<p>No posts found</p>';
     endif;
     ?>
 </div>
-        </div>
+ </div>
         <div class="aside" style="background-color:white;">
            <div class="events">
            
@@ -321,8 +331,9 @@ $('.owl-carousel').owlCarousel({
 });
 
 </script>
-
 </main>   
 <?php
 include_once get_template_directory() . '/inc/theme-options.php';
 get_footer();
+//commit changes checking
+//=========front-page.php==========
