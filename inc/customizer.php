@@ -1,9 +1,5 @@
 <?php
-/**
- * pawsgang Theme Customizer
- *
- * @package pawsgang
- */
+
 
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
