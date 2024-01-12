@@ -2,7 +2,11 @@
 /**
  * Template part for displaying a message that posts cannot be found
  *
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> f7a8d76d826656bc5866bb9e84f9fb5e8beb1cad
  */
 
 ?>
