@@ -295,7 +295,7 @@ function create_slider_post_type() {
     register_post_type('slider', $args);
 }
 add_action('init', 'create_slider_post_type');
-/*function create_event_post_type() {
+function create_event_post_type() {
     $args = array(
         'public' => true,
         'label'  => 'Events',
@@ -304,7 +304,57 @@ add_action('init', 'create_slider_post_type');
     );
     register_post_type('events', $args);
 }
-add_action('init', 'create_event_post_type'); */
+add_action('init', 'create_event_post_type');
+
+// Add custom meta boxes for start date, start time, end date, and end time
+function add_event_meta_boxes() {
+    add_meta_box('start_date', 'Start Date', 'display_start_date_meta_box', 'events', 'normal', 'high');
+    add_meta_box('start_time', 'Start Time', 'display_start_time_meta_box', 'events', 'normal', 'high');
+    add_meta_box('end_date', 'End Date', 'display_end_date_meta_box', 'events', 'normal', 'high');
+    add_meta_box('end_time', 'End Time', 'display_end_time_meta_box', 'events', 'normal', 'high');
+}
+add_action('add_meta_boxes', 'add_event_meta_boxes');
+
+// Display meta boxes
+function display_start_date_meta_box($post) {
+    $start_date = get_post_meta($post->ID, 'start_date', true);
+    echo '<label for="start_date">Start Date:</label>';
+    echo '<input type="date" id="start_date" name="start_date" value="' . esc_attr($start_date) . '" />';
+}
+
+function display_start_time_meta_box($post) {
+    $start_time = get_post_meta($post->ID, 'start_time', true);
+    echo '<label for="start_time">Start Time:</label>';
+    echo '<input type="time" id="start_time" name="start_time" value="' . esc_attr($start_time) . '" />';
+}
+
+function display_end_date_meta_box($post) {
+    $end_date = get_post_meta($post->ID, 'end_date', true);
+    echo '<label for="end_date">End Date:</label>';
+    echo '<input type="date" id="end_date" name="end_date" value="' . esc_attr($end_date) . '" />';
+}
+
+function display_end_time_meta_box($post) {
+    $end_time = get_post_meta($post->ID, 'end_time', true);
+    echo '<label for="end_time">End Time:</label>';
+    echo '<input type="time" id="end_time" name="end_time" value="' . esc_attr($end_time) . '" />';
+}
+
+// Save custom field values
+function save_event_meta_data($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+    if (!current_user_can('edit_post', $post_id)) return;
+
+    $fields = array('start_date', 'start_time', 'end_date', 'end_time');
+
+    foreach ($fields as $field) {
+        if (isset($_POST[$field])) {
+            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+        }
+    }
+}
+add_action('save_post', 'save_event_meta_data');
 
 function theme_customize_register($wp_customize) {
     // Create a section for Slider Settings

@@ -1,11 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-=======
-/**
-
- */
->>>>>>> f7a8d76d826656bc5866bb9e84f9fb5e8beb1cad
 
 /**
  * Add postMessage support for site title and description for the Theme Customizer.

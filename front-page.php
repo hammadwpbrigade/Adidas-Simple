@@ -29,7 +29,7 @@ get_header();
      width: 25px;
 }
 .swiper-button-next {
-    margin-right: 348px;
+    margin-left:34px;
     background-image:url('http://adidas-theme.local/wp-content/uploads/2024/01/hero-slider-right-arrow.png');
     background-size:cover;
 }
@@ -62,12 +62,19 @@ get_header();
     width:484px;
 }
 .post-1{
-    width:267px;
-    margin:30px;
+    width:225px;
+    margin:20px;
     background-image:url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
+    align-items: flex-end;
+    display: grid;
 }
 .post-content{
-    padding:20px;
+   
+}
+.read-more{
+    background-color:black;
+    opacity:0.5;
+   
 }
 hr{
     color:white;
@@ -161,11 +168,11 @@ for ($i = 1; $i <= $num_slides; $i++) {
                         endif;
                         ?>
                     </div>
-                </div>
-                <div class="swiper-pagination" ></div>
+                    <div class="swiper-pagination" style ="margin-left:25%;"></div>
                     <div class="swiper-button-prev" ></div>
-                    <div class="swiper-button-next" ></div>
-                    <hr>
+                    <div class="swiper-button-next" ></div> 
+                </div>
+               <hr>
             </div>
             <div class="sticky-post" id="displayed-post">
             <div class="post-wrapper" style="display:flex;">
@@ -248,12 +255,12 @@ if ($sticky_query->have_posts()) {
                     }
                     ?>
                 </div>
-                <div class="post-content">
+                <div class="post-content" style="padding:20px;">
                     <h6 style="color:white;"><?php the_title(); ?></h6>
                     <div class="text" style="color:white;"><?php the_excerpt(); ?></div>
                 </div>
                 <div class="read-more">
-                    <a href="<?php the_permalink(); ?>" class="btn">Read More</a>
+                    <a style="color:white" href="<?php the_permalink(); ?>" class="btn">Read More</a>
                 </div>
             </div>
     <?php
@@ -264,11 +271,60 @@ if ($sticky_query->have_posts()) {
     endif;
     ?>
 </div>
+<div class="twitter-feed">
+    <ul id="tweet-list"></ul>
+</div>
  </div>
         <div class="aside" style="background-color:white;">
-           <div class="events">
-           
-           </div>
+        <div class="events-container" style="background-color: white;">
+                    <div class="events-right">
+                        <div class="event-header">
+                            <p>Events</p>
+                        </div>
+                        <div class="slideable-content">
+                            <div class="slider-container-events">
+                                <?php
+                                $args = array(
+                                    'post_type' => 'events',
+                                    'posts_per_page' => 3, // Number of events to display
+                                    'order' => 'DESC', // Display events in descending order
+                                );
+                                $events_query = new WP_Query($args);
+
+                                if ($events_query->have_posts()) :
+                                    while ($events_query->have_posts()) : $events_query->the_post();
+                                ?>
+                                        <div class="e-slidediv1">
+                                            <?php the_post_thumbnail('thumbnail'); ?>
+                                            <div class="e-slidediv1-content">
+                                                <a href="<?php the_permalink(); ?>" class="event-h"><?php the_title(); ?></a>
+                                                <p class="time1"><?php echo get_the_date('jS M, Y'); ?><br>
+                                                    <?php echo get_post_meta(get_the_ID(), 'event_time', true); ?>
+                                                </p>
+                                            </div>
+                                        </div>
+                                <?php
+                                    endwhile;
+                                    wp_reset_postdata();
+                                else :
+                                    echo 'No events found';
+                                endif;
+                                ?>
+                            </div>
+                            <div class="controls" style="display: flex;">
+                                <div class="back-arrow">
+                                    <button onclick="showSlide2('prev')"><img src="assets/flat-color-icons_next(1).svg"/></button>
+                                </div>
+                                <div class="forward-arrow">
+                                    <button  onclick="showSlide2('next')"><img src="assets/flat-color-icons_next(2).svg"/></button>
+                                </div>
+                                <div class="more-events">
+                                    <p onclick="showSlide2('next')">More Events</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
            <div class="categories">
           
            </div>
