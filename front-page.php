@@ -62,7 +62,12 @@ get_header();
     width:484px;
 }
 .post-1{
-    width:225px;
+    width:267px;
+    margin:30px;
+    background-image:url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
+}
+.post-content{
+    padding:20px;
 }
 hr{
     color:white;

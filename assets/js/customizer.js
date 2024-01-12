@@ -1,6 +1,6 @@
 /* global wp, jQuery */
 /**
- * File customizer.js.
+ * File customizer
  *
  * Theme Customizer enhancements for a better user experience.
  *
