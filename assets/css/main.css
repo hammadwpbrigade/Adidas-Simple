@@ -11517,3 +11517,53 @@ p{
 
 }
 
+.categories-list {
+  background-color: transparent;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category {
+  position: relative;
+  padding: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  color:white;
+}
+
+.category:before {
+  content: "";
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Vector-1.png');
+  display: inline-block;
+  width: 5px;
+  height: 10px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.category img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.subcategory {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  top: 0;
+  background-color: transparent;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.subcategory li {
+  padding-left:25px;
+  font-size: small;
+  border-bottom: 1px solid #ddd;
+}
+
+.category:hover .subcategory {
+  display: block;
+}
