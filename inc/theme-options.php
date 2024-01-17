@@ -68,7 +68,7 @@ function theme_options_init() {
         'theme_options',
         'header_section'
     );
-
+   
     // Settings fields for the slider section
     add_settings_section(
         'slider_section',
@@ -83,6 +83,7 @@ function theme_options_init() {
         'theme_options',
         'slider_section'
     );
+    
     register_setting('theme_options', 'num_slides', 'sanitize_text_field'); 
     $num_slides = get_option('num_slides', 3);
     for ($i = 1; $i <=$num_slides; $i++) {
@@ -121,6 +122,12 @@ function theme_options_init() {
             'slider_section',
             array('slide_number' => $i)
         );
+        add_settings_section(
+            'tabs_section',
+            'Tabs Content Section',
+            'tabs_section_callback',
+            'theme_options'
+        );
     }
 
     // Register settings fields
@@ -138,13 +145,26 @@ function theme_options_init() {
         register_setting('theme_options', 'slide_textarea' . $i, 'sanitize_text_field');
         register_setting('theme_options', 'video_url' . $i, 'esc_url_raw');
     }
+    for ($i = 0; $i <= 2; $i++) {
+        add_settings_field(
+            'tab' . $i . '_content',
+            'Tab ' . $i . ' Content',
+            'tab_content_callback',
+            'theme_options',
+            'tabs_section',
+            array('tab_number' => $i)
+        );
+
+        register_setting('theme_options', 'tab' . $i . '_content', 'wp_kses_post');
+    }
+   
 }
 add_action('admin_init', 'theme_options_init');
 
 function header_section_callback() {
     echo '<p>Settings for the Notification-bar section</p>';
      // Field for enabling top bar notification
-     echo '<h3>Top Bar Notification</h3>';
+     echo '<h2>Top Bar Notification</h2>';
      echo '<label for="enable_top_bar_notification">';
      echo '<input type="checkbox" id="enable_top_bar_notification" name="enable_top_bar_notification" value="1" ' . checked(1, get_option('enable_top_bar_notification'), false) . ' />';
      echo ' Enable Top Bar Notification</label>';
@@ -207,4 +227,15 @@ function video_url_callback($args) {
     $value = get_option('video_url' . $slide_number);
     echo '<input type="url" name="video_url' . $slide_number . '" value="' . esc_url($value) . '" />';
 }
+function tabs_section_callback() {
+    echo '<p>Settings for the Tabs Content section</p>';
+}
+
+function tab_content_callback($args) {
+    $tab_number = $args['tab_number'];
+    $value = get_option('tab' . $tab_number . '_content', '');
+    echo '<textarea name="tab' . $tab_number . '_content">' . esc_textarea($value) . '</textarea>';
+}
+
+
 ?>

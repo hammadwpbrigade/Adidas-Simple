@@ -188,7 +188,10 @@ add_action('wp_enqueue_scripts', 'enqueue_owl_carousel_styles');
 
 
 function enqueue_custom_scripts() {
+    wp_enqueue_script('jquery');
     wp_enqueue_script('custom-script', get_template_directory_uri() . '/assets/js/navigation.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('your-custom-script', get_template_directory_uri() . '/assets/js/admin-ajax.js', array('jquery'), null, true);
+    wp_localize_script('your-custom-script', 'frontendajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 function enqueue_media_uploader() {
@@ -250,22 +253,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-/**
- * Footer Widget One
-*/
-function custom_footer_widget_one() {
-	$args = array(
-		'id' 							=> 'footer-widget-col-one',
-		'name'						=> __('Footer Column One', 'text_domain'),
-		'description'			=> __('Column One', 'text_domain'),
-		'before_title'		=> '<h3 class="title">',
-		'after_title' 		=> '</h3>',
-		'before_widget'		=> '<div id="%1$s" class="widget %2$s">',
-		'after_widget'    => '</div>'
-	);
-	register_sidebar( $args );
-}
-add_action( 'widgets_init', 'custom_footer_widget_one');
+
 function custom_header_widget() {
     register_sidebar(
         array(
@@ -317,6 +305,84 @@ function add_event_custom_fields() {
     );
 }
 add_action('add_meta_boxes', 'add_event_custom_fields');
+
+function load_events() {
+    $direction = $_POST['direction'];
+    $current_count = $_POST['currentCount'];
+
+    $args = array(
+        'post_type' => 'events',
+        'posts_per_page' => 3,
+        'order' => ($direction === 'prev') ? 'ASC' : 'DESC',
+        'offset' => $current_count
+    );
+
+    $events_query = new WP_Query($args);
+
+    if ($events_query->have_posts()) {
+        while ($events_query->have_posts()) {
+            $events_query->the_post();
+            ?>
+            <div class="e-slidediv1">
+                <?php the_post_thumbnail('thumbnail'); ?>
+                <div class="e-slidediv1-content">
+                    <a href="<?php the_permalink(); ?>" class="event-h">
+                        <?php the_title(); ?>
+                    </a>
+                    <p class="time1">
+                        <?php
+                        echo '' . get_post_meta(get_the_ID(), '_start_date', true);
+                        echo '<br>';
+                        echo '' . get_post_meta(get_the_ID(), '_start_time', true) . ' - ' . get_post_meta(get_the_ID(), '_end_time', true);
+                        ?>
+                    </p>
+                </div>
+            </div>
+            <?php
+        }
+        wp_reset_postdata();
+    } else {
+        echo 'No more events found';
+    }
+
+    die();
+}
+
+add_action('wp_ajax_load_events', 'load_events');
+add_action('wp_ajax_nopriv_load_events', 'load_events');
+function register_footer_widget_areas() {
+    register_sidebar(array(
+        'name'          => __('Footer Column 1', 'your-theme-text-domain'),
+        'id'            => 'footer_column_1',
+        'description'   => __('Widgets in this area will be displayed in the first column of the footer.', 'your-theme-text-domain'),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+
+    register_sidebar(array(
+        'name'          => __('Footer Column 2', 'your-theme-text-domain'),
+        'id'            => 'footer_column_2',
+        'description'   => __('Widgets in this area will be displayed in the second column of the footer.', 'your-theme-text-domain'),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+
+    register_sidebar(array(
+        'name'          => __('Footer Column 3', 'your-theme-text-domain'),
+        'id'            => 'footer_column_3',
+        'description'   => __('Widgets in this area will be displayed in the third column of the footer.', 'your-theme-text-domain'),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+}
+
+add_action('widgets_init', 'register_footer_widget_areas');
 
 function display_event_details_meta_box($post) {
     // Retrieve current values for start date, start time, and end time
@@ -488,4 +554,6 @@ function custom_theme_options($wp_customize) {
 }
 
 add_action('customize_register', 'custom_theme_options');
+
+
 include_once get_template_directory() . '/inc/theme-options.php';

@@ -21,7 +21,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'pawsgang' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'adidas' ); ?></a>
 
 	<header id="masthead" class="site-header" style=" background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/pattern-bg.png');background-color: #10372B;">
 
@@ -55,7 +55,7 @@
 				<div class="col-12 d-flex justify-content-center">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" >
 						<i class="bi bi-list"></i>
-						<?php esc_html_e( 'Primary Menu', 'pawsgang' );?>
+						<?php esc_html_e( 'Primary Menu', 'adidas' );?>
 					</button>
 				</div>
 
