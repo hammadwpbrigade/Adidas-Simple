@@ -129,8 +129,33 @@ function theme_options_init() {
             'theme_options'
         );
     }
+    add_settings_section(
+        'disclaimer_section',
+        'Disclaimer Section',
+        'disclaimer_section_callback',
+        'theme_options'
+    );
+
+    add_settings_field(
+        'enable_bottom_disclaimer',
+        'Enable Bottom Disclaimer Bar',
+        'enable_bottom_disclaimer_callback',
+        'theme_options',
+        'disclaimer_section'
+    );
+
+    add_settings_field(
+        'bottom_disclaimer_text',
+        'Bottom Disclaimer Text',
+        'bottom_disclaimer_text_callback',
+        'theme_options',
+        'disclaimer_section'
+    );
+
 
     // Register settings fields
+    register_setting('theme_options', 'enable_bottom_disclaimer', 'sanitize_text_field');
+    register_setting('theme_options', 'bottom_disclaimer_text', 'sanitize_text_field');
     register_setting('theme_options', 'top_bar_notification_text', 'sanitize_text_field');
     register_setting('theme_options', 'notification_link_text', 'sanitize_text_field');
     register_setting('theme_options', 'notification_link_url', 'esc_url_raw');
@@ -236,6 +261,20 @@ function tab_content_callback($args) {
     $value = get_option('tab' . $tab_number . '_content', '');
     echo '<textarea name="tab' . $tab_number . '_content">' . esc_textarea($value) . '</textarea>';
 }
+function disclaimer_section_callback() {
+    echo '<p>Settings for the Bottom Disclaimer Bar</p>';
+}
 
+function enable_bottom_disclaimer_callback() {
+    $value = get_option('enable_bottom_disclaimer', false);
+    echo '<label for="enable_bottom_disclaimer">';
+    echo '<input type="checkbox" id="enable_bottom_disclaimer" name="enable_bottom_disclaimer" value="1" ' . checked(1, $value, false) . ' />';
+    echo ' Enable Bottom Disclaimer Bar</label>';
+}
+
+function bottom_disclaimer_text_callback() {
+    $value = get_option('bottom_disclaimer_text', 'This is a bottom disclaimer. Change it in theme options.');
+    echo '<textarea name="bottom_disclaimer_text">' . esc_textarea($value) . '</textarea>';
+}
 
 ?>

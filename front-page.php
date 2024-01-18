@@ -19,10 +19,7 @@ get_header();
     nonce="6eRkiD6I"></script>
 <main>
     <style>
-        .aside {
-            padding-right: 380px;
-            width: 399px;
-        }
+       
 
         .swiper-slide {
             content: "";
@@ -31,21 +28,6 @@ get_header();
             bottom: 0;
             left: 0;
             background: linear-gradient(rgba(211, 211, 211, 0.3), rgba(211, 211, 211, 0.3)), url(http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-7.png);
-        }
-
-        .swiper-button-prev {
-            background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/hero-slider-leftt-arrow.png');
-            background-size: cover;
-            width: 25px;
-            margin-left: 64px;
-            transform: translateY(-1680%);
-        }
-
-        .swiper-button-next {
-            margin-right: 410px;
-            background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/hero-slider-right-arrow.png');
-            background-size: cover;
-            transform: translateY(-1680%);
         }
 
         .wp-post-image {
@@ -95,17 +77,7 @@ get_header();
             display: grid;
         }
 
-        .events-container {
-            width: 255px;
-            margin-top: 40px;
-            background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
-        }
-
-        .categories {
-            width: 255px;
-            margin-top: 15px;
-            background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
-        }
+      
 
         .weather {
             width: 255px;
@@ -207,9 +179,6 @@ get_header();
             display: flex;
         }
 
-        .twitter-feed {
-            width: 50%;
-        }
 
         .facebook-page {
             width: 50%;
@@ -236,6 +205,7 @@ get_header();
         .twitter-timeline {
             border-radius: 4;
         }
+      
     </style>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
@@ -273,7 +243,7 @@ get_header();
         style="background-image:url('<?php echo esc_url($slider_image_1); ?>');background-size:cover;height:650px;">
         <div class="owl-carousel">
             <?php foreach ($slides as $slide): ?>
-                <div class="slide item" style="display:flex;flex-direction:row-reverse;">
+                <div class="slide item">
                     <?php if (!empty($slide['second_image'])): ?>
                         <div class="second-image">
                             <div class="video-content">
@@ -302,10 +272,10 @@ get_header();
         </div>
     </div>
     <div class="global_container_">
-        <div class="data-container" style="display: flex;">
+        <div class="data-container" >
             <div class="col">
-                <div class="slider" style="width: 76%;">
-                    <div class="swiper" style="width: 700px; height: 210px;margin-top: 55px;">
+                <div class="slider" >
+                    <div class="swiper" >
                         <div class="swiper-wrapper">
                             <?php
                             $slider_query = new WP_Query(
@@ -341,10 +311,10 @@ get_header();
                             endif;
                             ?>
                         </div>
-                        <div class="swiper-pagination" style="margin-left: 25%;"></div>
+                        <div class="swiper-pagination" style="margin-left: 25%;width:max-content;"></div>
                     </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev custom-prev"></div>
+                    <div class="swiper-button-next custom-next"></div>
 
                     <hr>
                 </div>
@@ -376,7 +346,7 @@ get_header();
                                             $category_posts_query->the_post();
                                             $category_featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
                                             ?>
-                                            <div class="sticky-post-material" style="display:flex;flex-direction:row-reverse;">
+                                            <div class="sticky-post-material" >
                                                 <div class="category-thumbnail">
                                                     <?php if (!empty($category_featured_img_url)) { ?>
                                                         <img class="zig-zag-img" src="<?php echo esc_url($category_featured_img_url); ?>"
@@ -630,8 +600,7 @@ get_header();
             </div>
         </div>
         <div class="moveable_tabs_container">
-            <div class="real_container"
-                style="background-color:green;width: 80%;margin-left: 115px;margin-bottom:24px;margin-top:45px;">
+            <div class="real_container">
                 <div class="tab-container">
                     <div class="tabs">
                         <div class="tab" onclick="showTab(0)">Match Info</div>
@@ -669,7 +638,9 @@ get_header();
                 ],
                 responsive: {
                     0: {
-                        items: 1
+                        items: 1,
+                        nav:true
+                        
                     },
                     600: {
                         items: 1

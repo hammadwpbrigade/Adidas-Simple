@@ -119,8 +119,21 @@ function add_top_bar_notification() {
 }
 add_action('wp_head', 'add_top_bar_notification');
 
+function add_bottom_disclaimer_bar() {
+    $disclaimer_enabled = get_option('enable_bottom_disclaimer', true);
 
+    if ($disclaimer_enabled) {
+        $disclaimer_text = get_option('bottom_disclaimer_text', 'Disclaimer: Pende gönat kogörade att dor. Göktig vivår tedöna, sprita att pan. Nev dåhet diare refar. Pseudov hemitett tira: atomslöjd defas. Dell osat niväsk ynade. Terapon jömyr negt astrogahet.
+         Preppare multirat. Pibånas id ifall kontrabon krosa.');
 
+        echo '<div class="bottom-disclaimer-bar container pb-2">';
+        echo '<span>' . wp_kses_post($disclaimer_text) . '</span>';
+        echo '</div>';
+    }
+}
+
+// Add the disclaimer bar to the footer
+add_action('wp_footer', 'add_bottom_disclaimer_bar');
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

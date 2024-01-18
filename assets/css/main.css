@@ -11582,8 +11582,6 @@ p{
 }
 
 .search-icon {
-  position: absolute;
-  top: 50%;
   color: white;
   right: 10px; /* Adjust this value to position the icon as needed */
   transform: translateY(-50%);
@@ -11646,14 +11644,157 @@ font-weight: 600;
   display:flex;
   gap:35px;
 }
+.bottom-disclaimer-bar{
+  color:white;
+}
+.data-container{
+  display: flex;
+}
+.real_container{
+  background-color:green;
+  width: 80%;
+  margin-left: 115px;
+  margin-bottom:24px;
+  margin-top:45px;
+}
+.swiper{
+  width: 700px; 
+  height: 210px;
+  margin-top: 55px;
+}
+
+.slider{
+  width: 76%;
+}
+.custom-prev {
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/hero-slider-leftt-arrow.png');
+  background-size: cover;
+  width: 25px;
+  margin-left: 64px;
+  transform: translateY(-1680%);
+}
+
+.custom-next {
+  margin-right: 410px;
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/hero-slider-right-arrow.png');
+  background-size: cover;
+  transform: translateY(-1680%);
+}
+.sticky-post-material{
+  display:flex;
+  flex-direction:row-reverse;
+}
+
+.twitter-feed {
+  width: 50%;
+}
+.aside {
+  padding-right: 380px;
+  width: 399px;
+}
+.events-container {
+  width: 255px;
+  margin-top: 40px;
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
+}
+.categories {
+  width: 255px;
+  margin-top: 15px;
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
+}
+.footer-container{
+  display: flex;
+  gap:100px;
+  padding-top:34px;
+}
+.slide{
+  display:flex;
+  flex-direction:row-reverse;
+}
 @media only screen and (min-width: 120px) and (max-width:576px){
   .col{
     padding-left:0px;
+  }
+  .slider{
+    width: 100%;
+  }
+  .swiper{
+    width: 100%; 
+    height: 210px;
+    margin-top: 55px;
+  }
+  .swiper-pagination{
+    display: block-ruby;
   }
   .posts{
     display:flex;
     flex-direction: column;
     gap:35px;
   }
+  .real_container{
+    margin-left: 0px;  
+  }
+  .social-section {
+    display: flex;
+    flex-direction: column;
+}
+.data-container{
+  display: flex;
+  flex-direction: column;
+}
+.custom-prev {
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/hero-slider-leftt-arrow.png');
+  background-size: cover;
+  width: 25px;
+  margin-left: 0px;
+  transform: translateY(-5140%);
+}
+
+.custom-next {
+  margin-right: 0px;
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/hero-slider-right-arrow.png');
+  background-size: cover;
+  transform: translateY(-5145%);
+}
+.sticky-post-material{
+  display:flex;
+  flex-direction:column;
+}
+
+.twitter-feed {
+  width: 100%;
+}
+.aside {
+  width: 100%;
+  padding-right: 20px;
+}
+.events-container {
+  width: 100%;
+}
+.categories {
+  width: 100%;
+  padding-right: 20px;
+}
+.footer-container{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  padding-top:34px;
+}
+.slide{
+  display:flex;
+  flex-direction:column;
+}
+.owl-next, .owl-prev {
+  color: #fff ;
+  font-size: 67px;
+  display: inline-block;
+  position: absolute;
+}
+
+.owl-next {
+  bottom: 45%;
+  right: 1%;
+}
 }
 

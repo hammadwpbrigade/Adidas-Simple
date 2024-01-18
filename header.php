@@ -81,5 +81,13 @@
 			</div>
 
 		</nav>
+		<script>
+    // jQuery for the toggle functionality
+    jQuery(document).ready(function($) {
+        $('.menu-toggle').on('click', function() {
+            $('#primary-menu').slideToggle(); // You can use other animations or effects as needed
+        });
+    });
+</script>
 	</header><!-- #masthead -->
 	
