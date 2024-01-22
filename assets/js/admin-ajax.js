@@ -12,7 +12,7 @@ function loadEvents(direction) {
         },
         success: function (response) {
             if (response.indexOf('No more events found') === -1 && response.split('<div class="e-slidediv1">').length > 1) {
-              
+                container.find('.e-slidediv1').hide();
 
                 if (direction === 'prev') {
                     container.html(response);

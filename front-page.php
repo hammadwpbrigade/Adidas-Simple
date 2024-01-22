@@ -23,7 +23,7 @@ get_header();
        .slide-sw{
     width: auto;
   margin-right: 5px;
-  padding-right: 12px;
+ 
   }
         .swiper-slide {
 
@@ -251,7 +251,7 @@ get_header();
                                 while ($slider_query->have_posts()):
                                     $slider_query->the_post();
                                     ?>
-                                    <div class="swiper-slide slide-sw" style="height:fit-content;width:245px;">
+                                    <div class="swiper-slide slide-sw" style="height:170px;width:145px;">
                                         <a href="<?php the_permalink(); ?>" class="link-txt-slide">
                                             <?php the_post_thumbnail('large'); ?>
                                         </a>
@@ -273,11 +273,10 @@ get_header();
                             endif;
                             ?>
                         </div>
+                        <div class="swiper-button-prev custom-prev"></div>
+                    <div class="swiper-button-next custom-next"></div>
                         <div class="swiper-pagination" style="margin-left: 25%;width:max-content;"></div>
                     </div>
-                    <div class="swiper-button-prev custom-prev"></div>
-                    <div class="swiper-button-next custom-next"></div>
-
                     <hr>
                 </div>
                 <div class="sticky-post1" id="displayed-post">
@@ -297,7 +296,7 @@ get_header();
                                 while ($sticky_query->have_posts()) {
                                     $sticky_query->the_post();
                                     $category_posts_args = array(
-                                        'posts_per_page' => -1, // Set the number of posts to display (-1 for all)
+                                        'posts_per_page' => -1, 
                                         'category__in' => $category_id,
                                     );
                                     $category_posts_query = new WP_Query($category_posts_args);
@@ -635,9 +634,9 @@ get_header();
                     prevEl: '.swiper-button-prev',
                 },
                 breakpoints: {
-                    992: {
+                 1062: {
                         slidesPerView: 4,
-                        spaceBetween: 23,
+                        spaceBetween:40,
                     },
                     768: {
                         slidesPerView: 2,

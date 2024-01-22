@@ -668,7 +668,9 @@ button.swiper-pagination-bullet {
   position: relative;
   overflow: hidden;
   list-style: none;
-  padding: 0;
+  padding-left: 40px;
+  padding-right:40px;
+  
   z-index: 1;
   display: block
 }

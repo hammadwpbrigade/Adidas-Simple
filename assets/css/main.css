@@ -82,6 +82,7 @@ h1, .h1 {
 @media (min-width: 1200px) {
   h1, .h1 {
     font-size: 2.5rem;
+    color: white;
   }
 }
 
@@ -11134,7 +11135,7 @@ left: 15%;
 }
 
  .hero {
-    width: 100vw;
+    width: 100%;
     height: auto;
     position: relative;
     background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/hero-bg.png');
@@ -11666,6 +11667,8 @@ font-weight: 600;
 .swiper{
   width: 700px; 
   height: 210px;
+  padding-left:20px;
+  padding-right: 20px;
   margin-top: 55px;
 }
 
@@ -11676,15 +11679,15 @@ font-weight: 600;
   background-image: url('../img/hero-slider-leftt-arrow.png');
   background-size: cover;
   width: 25px;
-  margin-left: 64px;
-  transform: translateY(-1680%);
+ 
+ 
 }
 
 .custom-next {
-  margin-right: 410px;
+
   background-image: url('../img/hero-slider-right-arrow.png');
   background-size: cover;
-  transform: translateY(-1680%);
+ 
 }
 .sticky-post-material{
   display:flex;
@@ -11767,6 +11770,12 @@ font-weight: 600;
 .fb-page{
   margin-left:20px;
 }
+.swiper-slide img{
+ height: 140px;
+ padding-left: 4px;
+ padding-right: 4px;
+ padding-top:4px;
+}
 @media only screen and (min-width: 120px) and (max-width:576px){
   .col{
     padding-left:0px;
@@ -11811,16 +11820,15 @@ font-weight: 600;
 .custom-prev {
   background-image: url('../img/hero-slider-leftt-arrow.png');
   background-size: cover;
-  width: 25px;
-  margin-left: 0px;
-  transform: translateY(-5290%);
+  margin-left: -7px;
+  transform: translateY(0%);
 }
 
 .custom-next {
-  margin-right: 0px;
+  margin-right:-7px;
   background-image: url('../img/hero-slider-right-arrow.png');
   background-size: cover;
-  transform: translateY(-5290%);
+  transform: translateY(0%);
 }
 .sticky-post-material{
   display:flex;

@@ -9,14 +9,14 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+	<main id="primary" class="site-main  global_container_">
 
 		<section class="error-404 not-found">
-			<header class="page-header">
+			<header class="page-header" style="color: white;">
 				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'adidas' ); ?></h1>
 			</header><!-- .page-header -->
 
-			<div class="page-content">
+			<div class="page-content" style="color: white;">
 				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'adidas' ); ?></p>
 
 					<?php
