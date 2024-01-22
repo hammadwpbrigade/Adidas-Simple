@@ -323,11 +323,14 @@ function load_events() {
     $direction = $_POST['direction'];
     $current_count = $_POST['currentCount'];
 
+    // Calculate the offset based on the direction
+    $offset = ($direction === 'prev') ? $current_count - 3 : $current_count;
+
     $args = array(
-        'post_type' => 'events',
+        'post_type'      => 'events',
         'posts_per_page' => 3,
-        'order' => ($direction === 'prev') ? 'ASC' : 'DESC',
-        'offset' => $current_count
+        'order'          => ($direction === 'prev') ? 'ASC' : 'DESC',
+        'offset'         => $offset
     );
 
     $events_query = new WP_Query($args);
@@ -363,6 +366,8 @@ function load_events() {
 
 add_action('wp_ajax_load_events', 'load_events');
 add_action('wp_ajax_nopriv_load_events', 'load_events');
+
+
 function register_footer_widget_areas() {
     register_sidebar(array(
         'name'          => __('Footer Column 1', 'your-theme-text-domain'),

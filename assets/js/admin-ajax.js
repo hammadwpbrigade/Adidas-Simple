@@ -3,19 +3,26 @@ function loadEvents(direction) {
     var currentCount = container.find('.e-slidediv1').length;
 
     jQuery.ajax({
-        url: frontendajax.ajaxurl,  // Use frontendajax.ajaxurl instead of ajaxurl
+        url: frontendajax.ajaxurl,
         type: 'post',
         data: {
             action: 'load_events',
             direction: direction,
             currentCount: currentCount
         },
-        success: function(response) {
-            if (response) {
-                container.html(response);
+        success: function (response) {
+            if (response.indexOf('No more events found') === -1 && response.split('<div class="e-slidediv1">').length > 1) {
+              
+
+                if (direction === 'prev') {
+                    container.html(response);
+                } else {
+                    container.append(response); 
+                }
+
             }
         },
-        error: function(errorThrown){
+        error: function (errorThrown) {
             console.log(errorThrown);
         }
     });

@@ -20,13 +20,13 @@ get_header();
 <main>
     <style>
        
-
+       .slide-sw{
+    width: auto;
+  margin-right: 5px;
+  padding-right: 12px;
+  }
         .swiper-slide {
-            content: "";
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+
             background: linear-gradient(rgba(211, 211, 211, 0.3), rgba(211, 211, 211, 0.3)), url(http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-7.png);
         }
 
@@ -38,20 +38,6 @@ get_header();
         .swiper-pagination {
             padding-right: 310px;
         }
-
-        .category-thumbnail-content {
-            margin-top: 25px;
-            margin-left: 25px;
-            width: 344px;
-            margin-right: 100px;
-        }
-
-        .sticky-post1 {
-            max-width: 97%;
-            background: linear-gradient(0deg, rgba(8, 81, 45, 0.50) 0%, rgba(8, 81, 45, 0.50) 100%), url('http://adidas-theme.local/wp-content/uploads/2024/01/backstickpost.png'), lightgray 0% 0% / 100px 100px repeat;
-            margin-bottom: 20px;
-        }
-
         .post-thumbnail {
             align-items: stretch;
             display: flex;
@@ -63,39 +49,9 @@ get_header();
 
         .twitter-timeline {
             background-color: white;
+            border-radius: 13px;
         }
 
-        .zig-zag-img {
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 11% 100%);
-            height: 225px;
-            width: 484px;
-        }
-
-        .post-1 {
-            width: 225px;
-            background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
-            display: grid;
-        }
-
-      
-
-        .weather {
-            width: 255px;
-            margin-top: 15px;
-            background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
-        }
-
-        .date_time {
-            width: 255px;
-            margin-top: 15px;
-            background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
-        }
-
-        .newsletter {
-            width: 255px;
-            margin-top: 15px;
-            background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
-        }
 
         .event-header {
             color: white;
@@ -184,6 +140,7 @@ get_header();
             width: 50%;
         }
 
+    
         .date {
             color: white;
             margin: 7px;
@@ -205,7 +162,12 @@ get_header();
         .twitter-timeline {
             border-radius: 4;
         }
-      
+        .twitter-timeline iframe {
+            height:300px;
+        }
+        .fb_iframe_widget iframe{
+            border-radius: 12px;
+        }
     </style>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
@@ -240,7 +202,7 @@ get_header();
     }
     ?>
     <div class="hero"
-        style="background-image:url('<?php echo esc_url($slider_image_1); ?>');background-size:cover;height:650px;">
+        style="background-image:url('<?php echo esc_url($slider_image_1); ?>');">
         <div class="owl-carousel">
             <?php foreach ($slides as $slide): ?>
                 <div class="slide item">
@@ -289,7 +251,7 @@ get_header();
                                 while ($slider_query->have_posts()):
                                     $slider_query->the_post();
                                     ?>
-                                    <div class="swiper-slide" style="height:fit-content;">
+                                    <div class="swiper-slide slide-sw" style="height:fit-content;width:245px;">
                                         <a href="<?php the_permalink(); ?>" class="link-txt-slide">
                                             <?php the_post_thumbnail('large'); ?>
                                         </a>
@@ -429,19 +391,22 @@ get_header();
                         <div class="twitter-h">
                             <h4 style="color:white;">Latest Tweets</h4>
                         </div>
-                        <a class="twitter-timeline" href="https://twitter.com/hiddenpearls" data-tweet-limit="3"
-                            data-chrome="noheader nofooter transparent" data-theme="dark"></a>
+                        <a class="twitter-timeline" data-width="385" data-height="366" data-theme="light" href="https://twitter.com/hiddenpearls?ref_src=twsrc%5Etfw">Tweets by hiddenpearls</a>
+                         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
                     </div>
                     <div class="facebook-page">
                         <div class="facebook-h">
                             <h4 style="color:white;">Facebook Page</h4>
                         </div>
-                        <div style="margin-left:20px;" class="fb-page" data-href="https://www.facebook.com/WPBrigade/"
-                            data-tabs="timeline" data-width="340" data-height="363" data-small-header="false"
+                        <div class="facebook-container">
+                        <div  class="fb-page" data-href="https://www.facebook.com/WPBrigade/"
+                            data-tabs="timeline" data-height="363" data-small-header="false"
                             data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                             <blockquote cite="https://www.facebook.com/WPBrigade/" class="fb-xfbml-parse-ignore"><a
                                     href="https://www.facebook.com/WPBrigade/">WPBrigade</a></blockquote>
                         </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -462,7 +427,7 @@ get_header();
                                 $events_query = new WP_Query($args);
 
                                 if ($events_query->have_posts()):
-                                    echo '<div class="e-slidediv-container">'; // Container for each set of 3 posts
+                                    echo '<div class="e-slidediv-container">'; 
                                     while ($events_query->have_posts()):
                                         $events_query->the_post();
                                         ?>
@@ -493,13 +458,13 @@ get_header();
                             </div>
                             <div class="controls" style="display: flex; margin: 10px;">
                                 <div class="back-arrow">
-                                    <button onclick="load('prev')">
+                                    <button onclick="loadEvents('prev')">
                                         <img class="arrows"
                                             src="http://adidas-theme.local/wp-content/uploads/2024/01/flat-color-icons_next.png" />
                                     </button>
                                 </div>
                                 <div class="forward-arrow">
-                                    <button onclick="load('next')">
+                                    <button onclick="loadEvents('next')">
                                         <img class="arrows"
                                             src="http://adidas-theme.local/wp-content/uploads/2024/01/flat-color-icons_next-4.png" />
                                     </button>
@@ -585,7 +550,7 @@ get_header();
                                 <input style="background-color: rgba(1, 44, 31, 0.50);border-color:transparent;"
                                     type="email" name="email" id="email" placeholder="Enter your email">
 
-                                <div class="search-icon">
+                                <div class="search-icon-news">
                                     <i class="fa fa-search"></i>
                                 </div>
                             </div>
@@ -672,7 +637,7 @@ get_header();
                 breakpoints: {
                     992: {
                         slidesPerView: 4,
-                        spaceBetween: 19,
+                        spaceBetween: 23,
                     },
                     768: {
                         slidesPerView: 2,
@@ -680,7 +645,7 @@ get_header();
                     },
                     320: {
                         slidesPerView: 1,
-                        spaceBetween: 5,
+                        spaceBetween: 67,
                     },
                 },
             });

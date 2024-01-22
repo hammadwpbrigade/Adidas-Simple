@@ -29,8 +29,12 @@
 
 			<div class="row align-items-center">
 	
-				<div class="col site-header__logo d-flex justify-content-center justify-content-md-start">
+				<div class="col site-header__logo d-flex justify-content-center justify-content-md-start" >
 					<?php the_custom_logo(); ?>
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" style="margin-left:145px;background-color:transparent;border-color:transparent" >
+						<img src="http://adidas-theme.local/wp-content/uploads/2024/01/burger-icon.png"/>
+						<?php esc_html_e( '', 'adidas' );?>
+					</button>
 				</div>
 
 				<div class="col-sm-12 col-md-5">
@@ -52,12 +56,7 @@
 			<div class="container d-flex justify-content-center">
 
 			<div class="row">
-				<div class="col-12 d-flex justify-content-center">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" >
-						<i class="bi bi-list"></i>
-						<?php esc_html_e( 'Primary Menu', 'adidas' );?>
-					</button>
-				</div>
+				
 
 				<div class="col-12 text-center" style="display:flex;">
 					<?php
@@ -70,7 +69,7 @@
 					   
 					?>
 					<!-- Add a search bar -->
-					<div class="header-widget-area" style="height:45px;">
+					<div class="header-widget-area" >
                     <?php if ( is_active_sidebar( 'header-widget-area' ) ) : ?>
                      <?php dynamic_sidebar( 'header-widget-area' ); ?>
                    <?php endif; ?>
@@ -85,9 +84,11 @@
     // jQuery for the toggle functionality
     jQuery(document).ready(function($) {
         $('.menu-toggle').on('click', function() {
-            $('#primary-menu').slideToggle(); // You can use other animations or effects as needed
+            $('#primary-menu').slideToggle();
+            $('.header-widget-area').slideToggle(); 
         });
     });
 </script>
+
 	</header><!-- #masthead -->
 	

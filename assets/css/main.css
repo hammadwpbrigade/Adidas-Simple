@@ -1,6 +1,4 @@
 /*!
- * Bootstrap v5.0.0-beta2 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -11237,7 +11235,8 @@ left: 15%;
 @media only screen and (min-width: 120px) and (max-width:576px){
         
   .owl-dots{
-     margin-left: 119px;
+     margin-left: 0px;
+     padding-bottom:23px;
   }
  .nav-link {
      width: 200px;
@@ -11583,8 +11582,15 @@ p{
 
 .search-icon {
   color: white;
-  right: 10px; /* Adjust this value to position the icon as needed */
+  right: 10px; 
   transform: translateY(-50%);
+  
+}
+.search-icon-news {
+  color: white;
+  right: 10px; 
+  transform: translateY(-99%);
+  position: absolute;
   
 }
 .global_container_{
@@ -11711,6 +11717,56 @@ font-weight: 600;
   display:flex;
   flex-direction:row-reverse;
 }
+.hero{
+  background-size:cover;
+  height:650px;
+}
+.zig-zag-img {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 11% 100%);
+  height: 225px;
+  width: 484px;
+}
+.sticky-post1 {
+  max-width: 97%;
+  background: linear-gradient(0deg, rgba(8, 81, 45, 0.50) 0%, rgba(8, 81, 45, 0.50) 100%), url('http://adidas-theme.local/wp-content/uploads/2024/01/backstickpost.png'), lightgray 0% 0% / 100px 100px repeat;
+  margin-bottom: 20px;
+}
+.post-1 {
+  width: 225px;
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
+  display: grid;
+}
+.category-thumbnail-content {
+  margin-top: 25px;
+  margin-left: 25px;
+  width: 344px;
+  margin-right: 100px;
+}
+.weather {
+  width: 255px;
+  margin-top: 15px;
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
+}
+.date_time {
+  width: 255px;
+  margin-top: 15px;
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
+}
+.newsletter {
+  width: 255px;
+  margin-top: 15px;
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
+}
+.wp-block-heading{
+  margin-left:50px;
+}
+.header-widget-area{
+  height:45px;
+  display:block;
+}
+.fb-page{
+  margin-left:20px;
+}
 @media only screen and (min-width: 120px) and (max-width:576px){
   .col{
     padding-left:0px;
@@ -11730,14 +11786,24 @@ font-weight: 600;
     display:flex;
     flex-direction: column;
     gap:35px;
+    width:100%
+  }
+  .post-1{
+    width:95%;
+    background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
+    display: grid;
+    margin-left:12px;
+    margin-right:12px;
   }
   .real_container{
     margin-left: 0px;  
   }
   .social-section {
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
 }
+
 .data-container{
   display: flex;
   flex-direction: column;
@@ -11747,14 +11813,14 @@ font-weight: 600;
   background-size: cover;
   width: 25px;
   margin-left: 0px;
-  transform: translateY(-5140%);
+  transform: translateY(-5290%);
 }
 
 .custom-next {
   margin-right: 0px;
   background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/hero-slider-right-arrow.png');
   background-size: cover;
-  transform: translateY(-5145%);
+  transform: translateY(-5290%);
 }
 .sticky-post-material{
   display:flex;
@@ -11773,7 +11839,7 @@ font-weight: 600;
 }
 .categories {
   width: 100%;
-  padding-right: 20px;
+ 
 }
 .footer-container{
   display: flex;
@@ -11784,6 +11850,7 @@ font-weight: 600;
 .slide{
   display:flex;
   flex-direction:column;
+  margin:20px;
 }
 .owl-next, .owl-prev {
   color: #fff ;
@@ -11796,5 +11863,129 @@ font-weight: 600;
   bottom: 45%;
   right: 1%;
 }
+.hero{
+  height:auto;
+}
+.slide-textarea{
+  width:auto;
+  height:auto;
+  }
+  .second-image{
+    margin:67px;
+  }
+#menu-secondary_menu {
+padding-left: 0px;
+margin-left: 0px;
+}
+.slide-header{
+  height:auto;
+  width:100%;
+  }
+.zig-zag-img {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  height: 225px;
+  margin-right: 25px;
+  padding-right: 0px;
+  width: 100%;
+}
+.sticky-post1 {
+  margin-left:12px;
+  margin-right: 12px;
+}
+.category-thumbnail{
+  margin-right:0px;
+}
+.thumbnail img{
+  width:100%;
+}
+.social-section {
+  margin-left:12px;
+  margin-right:12px;
+}
+.category-thumbnail-content {
+  margin-top: 25px;
+  margin-left: 20px;
+  width: 95%;
+  margin-right: 20px;
+}
+#footer-sidebar-1{
+  padding-left: 0px;
+margin-left: 0px;
+}
+#footer-sidebar-2{
+  padding-left: 0px;
+margin-left: 0px;
+}
+.weather {
+  width: 100%;
+  margin-top: 15px;
+  background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-2-copy-2-1.png');
+}
+.weather img{
+  width:100%;
+}
+.date_time{
+  width:100%;
+}
+.newsletter {
+  width: 100%;
+}
+.col-12 {
+  flex-direction: column-reverse;
+  width: 100%;
+}
+.link-txt-slide img {
+  width:100%;
+  height:revert-layer;
+}
+.slider{
+  padding-left: 48px;
+  padding-right: 48px;
+}
+.email-input-container{
+  width:100%;
+}
+#email{
+  width:100%;
+}
+.gr-btn{
+  width:100%;
+  margin-left: 12px;
+}
+.tab-container {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+.real_container{
+  background-color:green;
+  width: 95%;
+  margin-left: 12px;
+  margin-right: 12px;
+ 
+}
+.wp-block-page-list {
+  margin-left: 0px;
+  }
+  .wp-block-group__inner-container ul {
+    margin-left: 0px;
+    }
+    #footer-sidebar-3 {
+      margin-left: 0px;
+      }
+      
+.wp-block-heading{
+        margin-left:20px;
+    }
+       .header-widget-area{
+      display:none;
+    }
+    .facebook-container{
+      width:380px;
+      margin-right: 12px;
+    }
+    .fb-page{
+      margin-left:0px;
+    }
 }
 

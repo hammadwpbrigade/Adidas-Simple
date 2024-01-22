@@ -18,11 +18,9 @@
     ul ul{
         list-style-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Vector-1.png');
     }
-    .wp-block-heading{
-        margin-left:50px;
-    }
+   
 </style>
-	
+
 <div class="container pb-2 footer-container" >
     <div class="footer-column">
         <?php if (is_active_sidebar('footer_column_1')) : ?>
@@ -45,8 +43,8 @@
             </ul>
         <?php endif; ?>
     </div>
-</div>
 
+</div>
 
 </footer>
 <!-- #page -->
