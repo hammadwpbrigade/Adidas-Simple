@@ -23,7 +23,7 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'adidas' ); ?></a>
 
-	<header id="masthead" class="site-header" style=" background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/pattern-bg.png');background-color: #10372B;">
+	<header id="masthead" class="site-header" style=" background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/pattern-bg.png');background-color: #10372B;">
 
 		<div class="container pt-2 pb-2">
 
@@ -32,7 +32,7 @@
 				<div class="col site-header__logo d-flex justify-content-center justify-content-md-start" >
 					<?php the_custom_logo(); ?>
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false" style="margin-left:145px;background-color:transparent;border-color:transparent" >
-						<img src="http://adidas-theme.local/wp-content/uploads/2024/01/burger-icon.png"/>
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/burger-icon.png"/>
 						<?php esc_html_e( '', 'adidas' );?>
 					</button>
 				</div>
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 		<nav id="site-navigation" class="main-navigation" style=" background-color: #155938;
-    background-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/pattern-bg.png');">
+    background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/pattern-bg.png');">
 			<div class="container d-flex justify-content-center">
 
 			<div class="row">

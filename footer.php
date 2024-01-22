@@ -10,13 +10,13 @@
 ?>
 
 
-<footer id="colophon" class="site-footer" style="background-color: #08512D;background-image:url('http://adidas-theme.local/wp-content/uploads/2024/01/pattern-bg.png');">
+<footer id="colophon" class="site-footer" style="background-color: #08512D;background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/pattern-bg.png');">
 <style>
     ul{
         list-style: none;
     }
     ul ul{
-        list-style-image: url('http://adidas-theme.local/wp-content/uploads/2024/01/Vector-1.png');
+        list-style-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/Vector-1.png');
     }
    
 </style>

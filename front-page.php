@@ -27,7 +27,7 @@ get_header();
   }
         .swiper-slide {
 
-            background: linear-gradient(rgba(211, 211, 211, 0.3), rgba(211, 211, 211, 0.3)), url(http://adidas-theme.local/wp-content/uploads/2024/01/Rectangle-7.png);
+            background: linear-gradient(rgba(211, 211, 211, 0.3), rgba(211, 211, 211, 0.3)), url('<?php echo get_template_directory_uri(); ?>/assets/img/Rectangle-7.png');
         }
 
         .wp-post-image {
@@ -215,7 +215,7 @@ get_header();
                                     <a class="play-btn" data-fancybox data-type="iframe"
                                         data-src="<?php echo esc_url($slide['link_url']); ?>" href="javascript:;">
                                         <img class="flex"
-                                            src="http://adidas-theme.local/wp-content/uploads/2024/01/play-icon.png" alt="">
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/img/play-icon.png" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -460,13 +460,13 @@ get_header();
                                 <div class="back-arrow">
                                     <button onclick="loadEvents('prev')">
                                         <img class="arrows"
-                                            src="http://adidas-theme.local/wp-content/uploads/2024/01/flat-color-icons_next.png" />
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/img/flat-color-icons_next.png" />
                                     </button>
                                 </div>
                                 <div class="forward-arrow">
                                     <button onclick="loadEvents('next')">
                                         <img class="arrows"
-                                            src="http://adidas-theme.local/wp-content/uploads/2024/01/flat-color-icons_next-4.png" />
+                                            src="<?php echo get_template_directory_uri(); ?>/assets/img/flat-color-icons_next-4.png" />
                                     </button>
                                 </div>
                                 <div class="more-events">
@@ -518,7 +518,7 @@ get_header();
                     </div>
                     <div style="padding:13px;border-radius:4%;"
                         class="elfsight-app-436fdc06-aba2-435e-9fb2-9bbcdeda88d2" data-elfsight-app-lazy><img
-                            src="http://adidas-theme.local/wp-content/uploads/2024/01/unnamed-1.png" /></div>
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/unnamed-1.png" /></div>
                 </div>
                 <div class="date_time">
                     <div class="dt-h">
@@ -598,8 +598,8 @@ get_header();
                 nav: true,
                 dots: true,
                 navText: [
-                    "<img src='http://adidas-theme.local/wp-content/uploads/2024/01/hero-slider-leftt-arrow.png' alt='Left Arrow'>",
-                    "<img src='http://adidas-theme.local/wp-content/uploads/2024/01/hero-slider-right-arrow.png' alt='Right Arrow'>"
+                    "<img src='<?php echo get_template_directory_uri(); ?>/assets/img/hero-slider-leftt-arrow.png' alt='Left Arrow'>",
+                    "<img src='<?php echo get_template_directory_uri(); ?>/assets/img/hero-slider-right-arrow.png' alt='Right Arrow'>"
                 ],
                 responsive: {
                     0: {
